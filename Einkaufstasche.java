@@ -23,4 +23,8 @@ public class Einkaufstasche {
 			System.out.println(v.getName());
 		}
 	}
+	
+	public void addGeschenk(Verschenkbar inhalt){
+		this.inhalt.add(inhalt);
+	}
 }
