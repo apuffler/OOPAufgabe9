@@ -5,6 +5,49 @@
  */
 public class Test {
 	public static void main(String[] args){
-		
+		/** Test 1 */
+		SchachtelLager sl = new SchachtelLager();
+		for (int i = 1; i < 20; i++){
+			sl.addSchachtel(new Schachtel(i, new Rechteck(i,i,i)));
+			sl.addSchachtel(new Schachtel(i, new Quadrat(i,i)));
+			sl.addSchachtel(new Schachtel(i, new Kreis(i,i)));
+			sl.addSchachtel(new Schachtel(i, new Sechseck(i,i)));
+		}
+		Einkaufstasche et = new Einkaufstasche();
+		for(int i = 1; i < 20; i++){
+			Schachtel h = null;
+			Geschenk g1 = new Geschenk(new Rechteck(i,i,i), "Rechteck"+i);
+			Geschenk g2 = new Geschenk(new Quadrat(i,i), "Quadrat"+i);
+			Geschenk g3 = new Geschenk(new Kreis(i,i), "Kreis"+i);
+			Geschenk g4 = new Geschenk(new Sechseck(i,i), "Sechseck"+i);
+			h=g1.verpacke(sl);
+			if(h == null){
+				et.addGeschenk(g1);
+			}else{
+				et.addGeschenk(h);
+			}
+			h=g2.verpacke(sl);
+			if(h == null){
+				et.addGeschenk(g2);
+			}else{
+				et.addGeschenk(h);
+			}
+			h=g3.verpacke(sl);
+			if(h == null){
+				et.addGeschenk(g3);
+			}else{
+				et.addGeschenk(h);
+			}
+			h=g4.verpacke(sl);
+			if(h == null){
+				et.addGeschenk(g4);
+			}else{
+				et.addGeschenk(h);
+			}
+		}
+		System.out.println("Einkaufstasche Volumen: " + et.volumen());
+		et.inhalt();
+
+		/** Test 2 */
 	}
 }
